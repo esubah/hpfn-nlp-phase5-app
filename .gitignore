@@ -130,3 +130,4 @@ autosaves/             # <<< This will ignore your autosaves/ directory
 *.tmp
 *.temp
 local_settings.py
+# Test ignore refresh
