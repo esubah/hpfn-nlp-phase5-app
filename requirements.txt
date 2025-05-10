@@ -1,0 +1,74 @@
+# Core Application Libraries
+streamlit==1.45.0
+pandas==2.2.3
+numpy==1.26.4
+openai==1.77.0
+matplotlib==3.10.1
+seaborn==0.13.2
+openpyxl==3.1.5
+XlsxWriter==3.2.3
+
+# Key Direct Dependencies for the Core Libraries (often good to include explicitly)
+# Streamlit & its direct needs:
+altair==5.5.0      # For st.altair_chart, Streamlit might pull it
+blinker==1.9.0
+cachetools==5.5.2
+click==8.1.8
+Jinja2==3.1.6
+packaging==23.2    # Common utility, used by many
+protobuf==6.30.2
+pyarrow==20.0.0    # Important for Streamlit/Pandas performance
+pydeck==0.9.1      # For st.pydeck_chart
+Pygments==2.19.1    # For st.code syntax highlighting
+python-dateutil==2.9.0.post0 # Used by pandas, matplotlib
+pytz==2025.2       # Used by pandas
+six==1.17.0         # Common compatibility
+toml==0.10.2
+tornado==6.4.2
+typing_extensions==4.13.2 # Used by many modern libraries, incl. pydantic, streamlit
+watchdog==6.0.0    # For Streamlit's rerun mechanism
+
+# Pandas specific:
+narwhals==1.37.1
+tzdata==2025.2
+
+# OpenAI & httpx specific:
+anyio==4.9.0
+distro==1.9.0
+httpx==0.27.0
+  # Dependencies of httpx:
+  certifi==2025.4.26
+  charset-normalizer==3.4.2 # For httpx's own encoding fallbacks
+  h11==0.16.0
+  httpcore==1.0.9
+  idna==2.10       # For international domain names in URLs
+  sniffio==1.3.1
+pydantic==2.11.4   # Used by openai, streamlit
+  # Dependencies of pydantic:
+  annotated-types==0.7.0
+  jiter==0.9.0
+  pydantic_core==2.33.2
+  typing-inspection==0.4.0
+tenacity==9.1.2
+tqdm==4.67.1
+
+# Matplotlib specific:
+contourpy==1.3.2
+cycler==0.12.1
+fonttools==4.57.0
+kiwisolver==1.4.8
+pillow==10.4.0
+pyparsing==3.2.3
+
+# openpyxl specific:
+et_xmlfile==2.0.0
+
+# Common utilities often pulled in:
+attrs==25.3.0
+MarkupSafe==3.0.2  # For Jinja2
+platformdirs==4.3.8 # Common utility for finding platform-specific dirs
+
+# Things like `jsonschema` and its dependencies (`referencing`, `rpds-py`, `jsonschema-specifications`)
+# are often pulled in by `altair` or `pydeck`. If `altair` and `pydeck` are included,
+# pip should handle these. We can try deploying without explicitly listing them first.
+# If the build fails missing them, we add them. This keeps the initial list cleaner.
